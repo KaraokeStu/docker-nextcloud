@@ -1,4 +1,4 @@
-FROM nextcloud:15-rc-apache
+FROM nextcloud:apache
 
 RUN mkdir -p /usr/share/man/man1 \
     && apt-get update && apt-get install -y \
