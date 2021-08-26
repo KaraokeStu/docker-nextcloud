@@ -1,4 +1,4 @@
-FROM nextcloud:latest
+FROM nextcloud:apache
 
 RUN apt-get update
 RUN apt-get upgrade -y
