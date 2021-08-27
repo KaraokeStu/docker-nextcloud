@@ -1,4 +1,4 @@
-FROM nextcloud:22
+FROM nextcloud:latest
 
 RUN apt-get update
 RUN apt-get upgrade -y
