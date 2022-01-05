@@ -11,7 +11,8 @@ RUN apt-get install -y --no-install-recommends --fix-missing \
  libbz2-dev \
  libc-client-dev \
  libkrb5-dev \
- libsmbclient-dev
+ libsmbclient-dev \
+ python3-pip
 
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl
 RUN docker-php-ext-install bz2 imap 
@@ -19,3 +20,9 @@ RUN pecl install smbclient
 RUN pecl install inotify
 RUN docker-php-ext-enable smbclient
 RUN docker-php-ext-enable inotify
+RUN python3 -m pip install numpy pillow
+RUN python3 -m pip install scipy pywavelets
+RUN python3 -m pip install asn1crypto
+RUN python3 -m pip install pynacl cryptography
+RUN python3 -m pip install pillow_heif
+RUN python3 -m pip install hexhamming
