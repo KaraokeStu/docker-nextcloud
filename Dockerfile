@@ -12,10 +12,7 @@ RUN apt-get install -y --no-install-recommends --fix-missing \
  libc-client-dev \
  libkrb5-dev \
  libsmbclient-dev \
- python3-full \
- python3-pip \
- python3-venv \
- python3-virtualenv
+ python3-pip
 
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl
 RUN docker-php-ext-install bz2 imap 
@@ -24,16 +21,12 @@ RUN pecl install inotify
 RUN docker-php-ext-enable smbclient
 RUN docker-php-ext-enable inotify
 
-# Install pipx, which we use to install other python tools.
-RUN python3 -m pip install pipx --break-system-packages
-RUN python3 -m pipx ensurepath
-
-RUN pipx install numpy
-RUN pipx install pillow
-RUN pipx install scipy
-RUN pipx install pywavelets
-RUN pipx install asn1crypto
-RUN pipx install pynacl
-RUN pipx install cryptography
-RUN pipx install pillow_heif
-RUN pipx install hexhamming
+RUN python3 -m pip install numpy
+RUN python3 -m pip install Pillow
+RUN python3 -m pip install scipy
+RUN python3 -m pip install pywavelets
+RUN python3 -m pip install asn1crypto
+RUN python3 -m pip install pynacl
+RUN python3 -m pip install cryptography
+RUN python3 -m pip install pillow_heif
+RUN python3 -m pip install hexhamming
