@@ -25,7 +25,7 @@ RUN docker-php-ext-enable smbclient
 RUN docker-php-ext-enable inotify
 
 # Install pipx, which we use to install other python tools.
-RUN python3 -m pip install pipx
+RUN python3 -m pip install pipx --break-system-packages
 RUN python3 -m pipx ensurepath
 
 RUN pipx install numpy pillow
