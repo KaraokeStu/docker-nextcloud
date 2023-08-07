@@ -12,7 +12,7 @@ RUN apt-get install -y --no-install-recommends --fix-missing \
  libc-client-dev \
  libkrb5-dev \
  libsmbclient-dev \
- python3-dev \
+ python3-full \
  python3-pip \
  python3-venv \
  python3-virtualenv
