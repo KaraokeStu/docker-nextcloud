@@ -12,8 +12,10 @@ RUN apt-get install -y --no-install-recommends --fix-missing \
  libc-client-dev \
  libkrb5-dev \
  libsmbclient-dev \
- python3-pip
-
+ python3-dev \
+ python3-pip \
+ python3-venv \
+ python3-virtualenv
 
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl
 RUN docker-php-ext-install bz2 imap 
@@ -23,7 +25,7 @@ RUN docker-php-ext-enable smbclient
 RUN docker-php-ext-enable inotify
 
 # Install pipx, which we use to install other python tools.
-RUN python3 -m pip install --user pipx
+RUN python3 -m pip install pipx
 RUN python3 -m pipx ensurepath
 
 RUN pipx install numpy pillow
