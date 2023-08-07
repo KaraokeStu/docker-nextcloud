@@ -28,12 +28,12 @@ RUN python3 -m pip install pipx --break-system-packages
 RUN python3 -m pipx ensurepath
 ENV PATH=/root/.local/bin:$PATH
 
-RUN pipx install numpy
-RUN pipx install Pillow
-RUN pipx install scipy
-RUN pipx install pywavelets
-RUN pipx install asn1crypto
-RUN pipx install pynacl
-RUN pipx install cryptography
-RUN pipx install pillow_heif
-RUN pipx install hexhamming
+RUN python3 -m pip install numpy --break-system-packages
+RUN python3 -m pip install Pillow --break-system-packages
+RUN python3 -m pip install scipy --break-system-packages
+RUN python3 -m pip install pywavelets --break-system-packages
+RUN python3 -m pip install asn1crypto --break-system-packages
+RUN python3 -m pip install pynacl --break-system-packages
+RUN python3 -m pip install cryptography --break-system-packages
+RUN python3 -m pip install pillow_heif --break-system-packages
+RUN python3 -m pip install hexhamming --break-system-packages
