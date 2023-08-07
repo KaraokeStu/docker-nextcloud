@@ -11,7 +11,9 @@ RUN apt-get install -y --no-install-recommends --fix-missing \
  libbz2-dev \
  libc-client-dev \
  libkrb5-dev \
- libsmbclient-dev
+ libsmbclient-dev \
+ python3-pip
+
 
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl
 RUN docker-php-ext-install bz2 imap 
@@ -21,20 +23,12 @@ RUN docker-php-ext-enable smbclient
 RUN docker-php-ext-enable inotify
 
 # Install pipx, which we use to install other python tools.
-ENV PIPX_BIN_DIR=/usr/local/bin
-ENV PIPX_DEFAULT_PYTHON=/usr/bin/python3
-RUN python3 -m venv /opt/pipx-venv \
-    && /opt/pipx-venv/bin/pip install --no-cache-dir pipx \
-    && ln -s /opt/pipx-venv/bin/pipx /usr/local/bin/
+RUN python3 -m pip install --user pipx
+RUN python3 -m pipx ensurepath
 
-# We don't use the ubuntu virtualenv package because it unbundles pip dependencies
-# in virtualenvs it create.
-RUN pipx install --pip-args="--no-cache-dir" virtualenv
-
-
-RUN pipx install --pip-args="--no-cache-dir" numpy pillow
-RUN pipx install --pip-args="--no-cache-dir" scipy pywavelets
-RUN pipx install --pip-args="--no-cache-dir" asn1crypto
-RUN pipx install --pip-args="--no-cache-dir" pynacl cryptography
-RUN pipx install --pip-args="--no-cache-dir" pillow_heif
-RUN pipx install --pip-args="--no-cache-dir" hexhamming
+RUN pipx install numpy pillow
+RUN pipx install scipy pywavelets
+RUN pipx install asn1crypto
+RUN pipx install pynacl cryptography
+RUN pipx install pillow_heif
+RUN pipx install hexhamming
