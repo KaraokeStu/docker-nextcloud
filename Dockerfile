@@ -21,12 +21,12 @@ RUN pecl install inotify
 RUN docker-php-ext-enable smbclient
 RUN docker-php-ext-enable inotify
 
-RUN python3 -m pip install numpy
-RUN python3 -m pip install Pillow
-RUN python3 -m pip install scipy
-RUN python3 -m pip install pywavelets
-RUN python3 -m pip install asn1crypto
-RUN python3 -m pip install pynacl
-RUN python3 -m pip install cryptography
-RUN python3 -m pip install pillow_heif
-RUN python3 -m pip install hexhamming
+RUN python3 -m pip install numpy --break-system-packages
+RUN python3 -m pip install Pillow --break-system-packages
+RUN python3 -m pip install scipy --break-system-packages
+RUN python3 -m pip install pywavelets --break-system-packages
+RUN python3 -m pip install asn1crypto --break-system-packages
+RUN python3 -m pip install pynacl --break-system-packages
+RUN python3 -m pip install cryptography --break-system-packages
+RUN python3 -m pip install pillow_heif --break-system-packages
+RUN python3 -m pip install hexhamming --break-system-packages
