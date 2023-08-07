@@ -29,11 +29,11 @@ RUN python3 -m pipx ensurepath
 ENV PATH=/root/.local/bin:$PATH
 
 RUN pipx install numpy
-RUN pipx inject Pillow
-RUN pipx inject scipy
-RUN pipx inject pywavelets
-RUN pipx inject asn1crypto
-RUN pipx inject pynacl
-RUN pipx inject cryptography
-RUN pipx inject pillow_heif
-RUN pipx inject hexhamming
+RUN pipx install Pillow
+RUN pipx install scipy
+RUN pipx install pywavelets
+RUN pipx install asn1crypto
+RUN pipx install pynacl
+RUN pipx install cryptography
+RUN pipx install pillow_heif
+RUN pipx install hexhamming
