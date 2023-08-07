@@ -13,7 +13,9 @@ RUN apt-get install -y --no-install-recommends --fix-missing \
  libkrb5-dev \
  libsmbclient-dev \
  python3-dev \
- python3-pip
+ python3-pip \
+ python3-venv \
+ python3-virtualenv
 
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl
 RUN docker-php-ext-install bz2 imap 
@@ -27,11 +29,11 @@ RUN python3 -m pipx ensurepath
 ENV PATH=/root/.local/bin:$PATH
 
 RUN pipx install numpy
-RUN pipx install Pillow
-RUN pipx install scipy
-RUN pipx install pywavelets
-RUN pipx install asn1crypto
-RUN pipx install pynacl
-RUN pipx install cryptography
-RUN pipx install pillow_heif
-RUN pipx install hexhamming
+RUN pipx inject Pillow
+RUN pipx inject scipy
+RUN pipx inject pywavelets
+RUN pipx inject asn1crypto
+RUN pipx inject pynacl
+RUN pipx inject cryptography
+RUN pipx inject pillow_heif
+RUN pipx inject hexhamming
