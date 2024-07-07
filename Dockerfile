@@ -4,7 +4,6 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y --no-install-recommends --fix-missing \
  ffmpeg \
- libmagickcore-6.q16-6-extra \
  procps \
  smbclient \
  inotify-tools \
@@ -16,6 +15,9 @@ RUN apt-get install -y --no-install-recommends --fix-missing \
  python3-pip \
  python3-venv \
  python3-virtualenv
+
+COPY heic.sh heic.sh
+RUN chmod +x ./heic.sh && ./heic.sh
 
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl
 RUN docker-php-ext-install bz2 imap 
